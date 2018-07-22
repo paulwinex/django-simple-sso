@@ -14,6 +14,8 @@ class SecretKeyGenerator(object):
     """
 
     def __init__(self, field):
+        if isinstance(field, bytes):
+            field = field.decode()
         self.field = field
 
     def __call__(self):
