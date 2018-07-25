@@ -3,7 +3,7 @@ from simple_sso.sso_server.server import Server as DefauleServer
 
 class Server(DefauleServer):
     def get_user_data(self, user, consumer, extra_data=None):
-        user_data = getattr(self, 'user_data') or {
+        user_data = getattr(self, 'user_data', None) or {
             'email': user.email,
             'is_staff': False,
             'is_superuser': False,
